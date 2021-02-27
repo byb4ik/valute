@@ -1,0 +1,108 @@
+.body-style {
+    background: #E5EBF2;
+    min-height: 100%;
+}
+
+.actives {
+    background-color: #e5ebf2 !important;
+    color: black;
+}
+
+#navig .actives{
+    color: black;
+}
+
+#navig .actives:hover{
+    color: #343a40;
+}
+
+.link-p {
+    padding: 1rem 0 1rem 2rem !important;
+    border-bottom: 1px solid rgba(107, 108, 109, 0.19);
+    color: white;
+}
+
+.navi {
+    min-height: 52em;
+    color: white;
+}
+
+.btn-outline-secondary:hover {
+    background-color: #e5ebf2;
+    color: #000;
+}
+
+#navig a:hover {
+    color: black;
+    text-decoration: none;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+    color: #fff;
+    background-color: #343a40;
+}
+
+a {
+    color: #343a40;
+    text-decoration: none;
+    background-color: transparent;
+}
+
+a:hover {
+    color: #000;
+    text-decoration: underline;
+}
+
+.navi-cl {
+    width: calc(100% + 1.8rem + 1px);
+    margin-left: -.9rem;
+}
+
+.hz1 {
+    position: absolute;
+    inset: 0px;
+    overflow: hidden;
+    pointer-events: none;
+    visibility: hidden;
+    z-index: -1;
+}
+
+.hz2 {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+    pointer-events: none;
+    visibility: hidden;
+    z-index: -1;
+}
+
+.hz3 {
+    position: absolute;
+    width: 1000000px;
+    height: 1000000px;
+    left: 0;
+    top: 0;
+}
+
+.hz4 {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+    pointer-events: none;
+    visibility: hidden;
+    z-index: -1;
+}
+
+.hz5 {
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    left: 0;
+    top: 0;
+}

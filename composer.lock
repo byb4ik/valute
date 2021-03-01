@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ddeabc1ce42c24615f2fd0343a6ea0f2",
+    "content-hash": "ca2ad8a2fedebda9590b1346a1121066",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1533,6 +1533,58 @@
                 }
             ],
             "time": "2020-12-14T13:15:25+00:00"
+        },
+        {
+            "name": "muhamadrezaar/highcharts",
+            "version": "2.0.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/julles/laravel-highcharts.git",
+                "reference": "efe473406b32e55e8f5eac4f79b6193da0abc013"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/julles/laravel-highcharts/zipball/efe473406b32e55e8f5eac4f79b6193da0abc013",
+                "reference": "efe473406b32e55e8f5eac4f79b6193da0abc013",
+                "shasum": ""
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "RezaAr\\Highcharts\\Provider"
+                    ],
+                    "aliases": {
+                        "Chart": "RezaAr\\Highcharts\\Facade"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "RezaAr\\Highcharts\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Muhamad Reza Abdul Rohim",
+                    "email": "reza.wikrama3@gmail.com"
+                }
+            ],
+            "description": "Laravel Highcarts Packages",
+            "keywords": [
+                "highcharts",
+                "laravel",
+                "packages"
+            ],
+            "support": {
+                "issues": "https://github.com/julles/laravel-highcharts/issues",
+                "source": "https://github.com/julles/laravel-highcharts/tree/master"
+            },
+            "time": "2018-10-18T14:54:03+00:00"
         },
         {
             "name": "nesbot/carbon",

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Currency;
 use Illuminate\Http\Request;
 
 class CurrencyController extends Controller
@@ -13,7 +14,49 @@ class CurrencyController extends Controller
      */
     public function index()
     {
-        return 'is index';
+        $chart1 = \Chart::title([
+            'text' => 'Курс валют',
+        ])
+            ->chart([
+                'type' => 'line', // pie , columnt ect
+                'renderTo' => 'chart1', // render the chart into your div with id
+            ])
+            ->colors([
+                '#0c2959'
+            ])
+            ->xaxis([
+                'categories' => [
+                    'Alex Turner',
+                ],
+                'labels' => [
+                    'rotation' => 15,
+                    'align' => 'top',
+                    'formatter' => 'startJs:function(){return this.value + " (Footbal Player)"}:endJs',
+                    // use 'startJs:yourjavasscripthere:endJs'
+                ],
+            ])
+            ->yaxis([
+                'text' => 'This Y Axis',
+            ])
+            ->legend([
+                'layout' => 'vertikal',
+                'align' => 'right',
+                'verticalAlign' => 'middle',
+            ])
+            ->series(
+                [
+                    [
+                        'name' => 'Voting',
+                        'data' => [2, 3, 7, 8],
+                        // 'color' => '#0c2959',
+                    ],
+                ]
+            )
+            ->display();
+
+        return view('welcome', [
+            'chart1' => $chart1,
+        ]);
     }
 
     /**
@@ -29,18 +72,28 @@ class CurrencyController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(array $currency)
     {
-        //
+        return Currency::create([
+            'AUD' => $currency['AUD'],
+            'GBP' => $currency['GBP'],
+            'BYN' => $currency['BYN'],
+            'DKK' => $currency['DKK'],
+            'USD' => $currency['USD'],
+            'EUR' => $currency['EUR'],
+            'CAD' => $currency['CAD'],
+            'CNY' => $currency['CNY'],
+            'UAH' => $currency['UAH'],
+            'CZK' => $currency['CZK'],
+            'created_at' => date('created_at'),
+        ]);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -51,7 +104,7 @@ class CurrencyController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -62,8 +115,8 @@ class CurrencyController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param \Illuminate\Http\Request $request
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -74,11 +127,12 @@ class CurrencyController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
         //
     }
+
 }

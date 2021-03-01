@@ -2,7 +2,7 @@
 
 use Illuminate\Foundation\Inspiring;
 use Illuminate\Support\Facades\Artisan;
-
+use App\Console\Commands\Parser;
 /*
 |--------------------------------------------------------------------------
 | Console Routes
@@ -17,3 +17,7 @@ use Illuminate\Support\Facades\Artisan;
 Artisan::command('inspire', function () {
     $this->comment(Inspiring::quote());
 })->purpose('Display an inspiring quote');
+
+Artisan::command('parser', function () {
+    return Parser::parse();
+});

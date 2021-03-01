@@ -47,7 +47,12 @@ class CurrencyController extends Controller
                 [
                     [
                         'name' => 'Voting',
-                        'data' => [2, 3, 7, 8],
+                        'data' => [2, 3, 7, 8, 10, 1],
+                        // 'color' => '#0c2959',
+                    ],
+                    [
+                        'name' => 'Voting2',
+                        'data' => [1, 6, 10, 30, 15, 2],
                         // 'color' => '#0c2959',
                     ],
                 ]

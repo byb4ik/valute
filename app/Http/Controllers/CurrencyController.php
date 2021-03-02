@@ -3,10 +3,25 @@
 namespace App\Http\Controllers;
 
 use App\Models\Currency;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Arr;
 
 class CurrencyController extends Controller
 {
+    public $arr_table = [
+        'AUD',
+        'GBP',
+        'BYN',
+        'DKK',
+        'USD',
+        'EUR',
+        'CAD',
+        'CNY',
+        'UAH',
+        'CZK',
+    ];
+
     /**
      * Display a listing of the resource.
      *
@@ -14,50 +29,45 @@ class CurrencyController extends Controller
      */
     public function index()
     {
+        $graph_arr = [];
+        $result = Currency::all()->toArray();
+
+        foreach ($result as $key => $item) {
+            $graph_arr[] = floatval($item['AUD']);
+        }
+
         $chart1 = \Chart::title([
             'text' => 'Курс валют',
-        ])
-            ->chart([
-                'type' => 'line', // pie , columnt ect
-                'renderTo' => 'chart1', // render the chart into your div with id
-            ])
-            ->colors([
-                '#0c2959'
-            ])
-            ->xaxis([
-                'categories' => [
-                    'Alex Turner',
-                ],
-                'labels' => [
-                    'rotation' => 15,
-                    'align' => 'top',
-                    'formatter' => 'startJs:function(){return this.value + " (Footbal Player)"}:endJs',
-                    // use 'startJs:yourjavasscripthere:endJs'
-                ],
-            ])
-            ->yaxis([
-                'text' => 'This Y Axis',
-            ])
-            ->legend([
-                'layout' => 'vertikal',
-                'align' => 'right',
-                'verticalAlign' => 'middle',
-            ])
-            ->series(
+        ])->chart([
+            'type' => 'line', // pie , columnt ect
+            'renderTo' => 'chart1', // render the chart into your div with id
+        ])->colors([
+            '#0c2959'
+        ])->xaxis([
+            'categories' => [
+                'Date',
+            ],
+            'labels' => [
+                'rotation' => 15,
+                'align' => 'top',
+                'formatter' => 'startJs:function(){return this.value + " (Footbal Player)"}:endJs',
+            ],
+        ])->yaxis([
+            'text' => 'This Y Axis',
+        ])->legend([
+            'layout' => 'vertikal',
+            'align' => 'right',
+            'verticalAlign' => 'middle',
+        ])->series(
+            [
                 [
-                    [
-                        'name' => 'Voting',
-                        'data' => [2, 3, 7, 8, 10, 1],
-                        // 'color' => '#0c2959',
-                    ],
-                    [
-                        'name' => 'Voting2',
-                        'data' => [1, 6, 10, 30, 15, 2],
-                        // 'color' => '#0c2959',
-                    ],
-                ]
-            )
-            ->display();
+                    'name' => 'AUD',
+                    'data' => $graph_arr,
+                    'color' => '#0c2959',
+                ],
+
+            ]
+        )->display();
 
         return view('welcome', [
             'chart1' => $chart1,
@@ -91,7 +101,7 @@ class CurrencyController extends Controller
             'CNY' => $currency['CNY'],
             'UAH' => $currency['UAH'],
             'CZK' => $currency['CZK'],
-            'created_at' => date('created_at'),
+            'created_at' => Carbon::now(),
         ]);
     }
 

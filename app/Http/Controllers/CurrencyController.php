@@ -9,18 +9,6 @@ use Illuminate\Support\Arr;
 
 class CurrencyController extends Controller
 {
-    public $arr_table = [
-        'AUD',
-        'GBP',
-        'BYN',
-        'DKK',
-        'USD',
-        'EUR',
-        'CAD',
-        'CNY',
-        'UAH',
-        'CZK',
-    ];
 
     /**
      * Display a listing of the resource.
@@ -29,6 +17,8 @@ class CurrencyController extends Controller
      */
     public function index()
     {
+        $currency_field = (new Currency())->getField();
+
         $graph_arr = [];
         $result = Currency::all()->toArray();
 

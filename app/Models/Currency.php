@@ -28,4 +28,9 @@ class Currency extends Model
         'UAH',
         'CZK',
     ];
+
+    public function getField(): array
+    {
+        return $this->fillable;
+    }
 }
